@@ -1,0 +1,133 @@
+/*reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+ol,ul {
+    list-style: none;
+}
+
+/*common*/
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*pagecss*/
+html {
+    background: #ddd;
+}
+#header{
+    width: 500px;
+    margin: 100px auto 0 auto;
+}
+#app{
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 30px auto 0 auto;
+    position: relative;
+}
+
+#signUpAndLogin>.tabs {
+    display: flex;
+}
+#signUpAndLogin>.tabs>li {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 600;
+    transition: border .5s;
+    border-bottom: 4px solid black;
+}
+#signUpAndLogin>.tabs>li:first-child {
+    border-right: 2px solid black;
+}
+#signUpAndLogin>.tabs>li:last-child {
+    border-left: 2px solid black;
+}
+#signUpAndLogin>.tabs>li.active {
+    border-bottom: none;
+}
+#signUpAndLogin>.content>.signup div,
+#signUpAndLogin>.content>.login div{
+    margin: 10px 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+#signUpAndLogin>.content>.signup input,
+#signUpAndLogin>.content>.login input{
+    width: 250px;
+    font-size: 20px;
+}
+#signUpAndLogin>.content>.signup label,
+#signUpAndLogin>.content>.login label {
+    display: block;
+    margin-right: 155px;
+}
+#signUpAndLogin>.content>.signup input[type='submit'],
+#signUpAndLogin>.content>.login input[type='submit']{
+    display: block;
+    margin: 0 auto 10px auto;
+    padding: .3em .8em;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(hsla(0,0%,100%,.2),
+    transparent);
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+    color: white;
+    text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+    font-size: 100%;
+    line-height: 1.5;
+}
+
+#todo>.newTask>input {
+    width: 400px;
+    font-size: 20px;
+}
+#todo>.newTask {
+    text-align: center;
+    vertical-align: middle;
+}
+#todo .addbutton {
+    font-size: 25px;
+    cursor: pointer;
+}
+#todo .addbutton:active{
+    color: #fff;
+}
+#todo .logoutbtn {
+    display: block;
+    margin: 0 auto 10px auto;
+    padding: .3em .8em;
+    border: 1px solid #446d88;
+    background: #58a linear-gradient(hsla(0,0%,100%,.2),
+    transparent);
+    border-radius: .2em;
+    box-shadow: 0 .05em .25em rgba(0,0,0,.5);
+    color: white;
+    text-shadow: 0 -.05em .05em rgba(0,0,0,.5);
+    font-size: 100%;
+    line-height: 1.5;
+    position: absolute;
+    right: 0;
+    top: -45px;
+}
+#todo .todos li {
+    padding: 0 30px;
+    margin: 5px 0;
+}
+#todo .todos li span:nth-of-type(1) {
+    font-size: 20px;
+}
+#todo .todos li span:nth-of-type(2) {
+    font-size: 12px;
+    color: #444;
+}
+#todo .todos .deletebtn {
+    cursor: pointer;
+}

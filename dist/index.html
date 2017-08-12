@@ -1,22 +1,82 @@
+<!DOCTYPE html>
 <html>
   <head>
+	  <meta charset="UTF-8">
+	  <title>ToDoList</title>
   </head>
   <body>
+  	<h1 id="header" class="animated bounceInDown">ToDoList</h1>
 	<div id="app">
-		<div class="newTask">
-			<input type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
-		</div>
-		<ol class="todos">
-			<li v-for="todo in todoList">
-				<input type="checkbox" v-model="todo.done">
-				{{todo.title}}
-				{{todo.createdAt}}
-				<span v-if="todo.done">已完成</span>
-				<span v-else>未完成</span>
-				<button v-on:click="removeTodo(todo)">X</button>
-			</li>
-		</ol>
+		<section id="signUpAndLogin" v-if="!currentUser">
+			<ul class="tabs">
+				<li v-bind:class="{ active: isActive }" @click.stop=toggle>Sign up</li>
+				<li v-bind:class="{ active: !isActive }" @click.stop=toggle>Log in</li>
+			</ul>
+			<ul class="content">
+				<li class="signup" v-if=isActive>
+					<form @submit.prevent=signUp>
+						<div>
+							<label>Username: </label>
+							<input type="text" v-model="formData.username" >
+						</div>
+						<div>
+							<label>Password: </label>
+							<input type="password" v-model="formData.password">
+						</div>
+						<input type="submit" value="Sign up">
+					</form>
+				</li>
+				<li class="login" v-if=!isActive>
+					<form @submit.prevent=login>
+						<div>
+							<label>Username: </label>
+							<input type="text" v-model="formData.username">
+						</div>
+						<div>
+							<label>Password: </label>
+							<input type="password" v-model="formData.password">
+						</div>
+						<input type="submit" value="Log in">
+					</form>
+				</li>
+			</ul>
+		</section>
+		<section id="todo" v-if="currentUser">
+			<button @click='logout' class="logoutbtn">Log out</button>
+			<div class="newTask">
+				<input type="text" v-model="newTodo">
+				<span class="addbutton" @click="addTodo">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-zengjia"></use>
+					</svg>
+				</span>
+			</div>
+			<ol class="todos">
+				<li v-for="todo in todoList">
+					<input type="checkbox" v-model="todo.done">
+					<span>{{todo.title}}</span>
+					<span>{{todo.createdAt}}</span>
+					<span v-if="todo.done">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-wancheng"></use>
+						</svg>
+					</span>
+					<span v-else>
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-weiwancheng"></use>
+						</svg>
+					</span>
+					<span @click="removeTodo(todo)" class="deletebtn">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#icon-chuyidong"></use>
+						</svg>
+					</span>
+				</li>
+			</ol>
+		</section>
 	</div>
     <script src="bundle.js"></script>
+	<script src="https://at.alicdn.com/t/font_307111_4pfkf2cjgrx561or.js"></script>
   </body>
 </html>
+<!--animated,{slideInLeft: isIn,slideOutLeft: !isIn}]-->
